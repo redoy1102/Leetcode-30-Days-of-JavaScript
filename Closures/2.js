@@ -1,30 +1,17 @@
 /**
- * @param {string} val
- * @return {Object}
+ * @param {number} n
+ * @return {Function} counter
  */
-var expect = function(val) {
-    return {
-        toBe: (toBeVal) => {
-            if(val === toBeVal){
-                return true
-            }
-            else{
-                throw new Error("Not Equal")
-            }
-        },
-        notToBe: (notToBeVal) => {
-            if(val !== notToBeVal){
-                return true
-            }
-            else{
-                throw new Error("Equal")
-                // return "Equal"
-            }
-        }
-    }
+var createCounter = function(n) {
+    
+    return function() {
+        return n++;
+    };
 };
 
-/**
- * expect(5).toBe(5); // true
- * expect(5).notToBe(5); // throws "Equal"
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
  */
