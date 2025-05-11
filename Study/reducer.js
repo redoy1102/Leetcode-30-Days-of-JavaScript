@@ -9,4 +9,11 @@
 
 // Example: 2
 
-const nums = [1, 2, 3, 4, 5];
+const nums = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const merge = nums.reduce((accumulator, currentValue) => {
+  return accumulator.concat(currentValue);
+}, []);
